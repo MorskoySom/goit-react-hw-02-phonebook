@@ -17,6 +17,9 @@ export class ContactForm extends Component {
                     <p>Number</p>
                     <input type="tel" name="number" />
                 </div>
+                <p>
+                    <button>Add contact</button>
+                </p>
             </div>
         )
     }

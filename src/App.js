@@ -19,35 +19,30 @@ class App extends Component {
     this.setState({ filter: newFilter })
   }
 
+  getVisibleContacts = () => {
+    const { filter, contacts } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }
 
   render() {
+    const { filter, contacts } = this.state;
+    const visibleContacts = this.getVisibleContacts();
+
     return (
       <div>
-        <h1>Phonebook {this.state.filter}</h1>
+        <h1>Phonebook {filter}</h1>
         <ContactForm />
         <h2>Contacts</h2>
-        <Filter filterName={this.state.filter} toSearch={this.changeFilter} />
-        <ContactList persons={this.state.contacts} />
+        <Filter filterName={filter} toSearch={this.changeFilter} />
+        <ContactList persons={visibleContacts} />
       </div>
     )
   }
 
 
 }
-
-
-
-
-// function App() {
-//   return (
-//     <div>
-//       <h1>Phonebook</h1>
-
-//       <h2>Contacts</h2>
-
-//     </div>
-//   );
-// }
 
 export default App;
 
