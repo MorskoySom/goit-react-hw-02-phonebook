@@ -19,6 +19,12 @@ class App extends Component {
     this.setState({ filter: newFilter })
   }
 
+  deleteContactElement = (elementId) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => elementId !== contact.id)
+    }))
+  }
+
   getVisibleContacts = () => {
     const { filter, contacts } = this.state;
     return contacts.filter(contact =>
@@ -36,7 +42,7 @@ class App extends Component {
         <ContactForm />
         <h2>Contacts</h2>
         <Filter filterName={filter} toSearch={this.changeFilter} />
-        <ContactList persons={visibleContacts} />
+        <ContactList persons={visibleContacts} toDelete={this.deleteContactElement} />
       </div>
     )
   }

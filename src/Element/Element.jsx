@@ -1,8 +1,9 @@
 import React from "react";
 
-export const Element = ({ info }) => {
+export const Element = ({ info: { name, number, id }, toDelete }) => {
     return (<div>
-        <p>{info.name} : {info.number}</p>
+        <p>{name} : {number}</p>
+        <button onClick={() => toDelete(id)}>Delete</button>
     </div>)
 }
 
