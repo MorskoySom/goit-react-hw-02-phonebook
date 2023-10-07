@@ -9,5 +9,4 @@ export const Filter = ({ filterName, toSearch }) => {
             onChange={evt => { toSearch(evt.target.value) }}
         />
     </div>
-
 }   

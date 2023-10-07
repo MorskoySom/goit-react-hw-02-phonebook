@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
-import { Item } from "Element/Element"
 import { ContactList } from "ContactsList/ContactsList";
 import { ContactForm } from "ContactForm/ContactForm";
 import { Filter } from "Filter/Filter";
@@ -68,8 +67,6 @@ class App extends Component {
       </div>
     )
   }
-
-
 }
 
 export default App;

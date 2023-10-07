@@ -39,7 +39,6 @@ export const ContactForm = ({ toAdd }) => {
                         <ErrorMessage name="name" />
                     </label>
                 </div>
-
                 <div>
                     <label>
                         Number
@@ -47,7 +46,6 @@ export const ContactForm = ({ toAdd }) => {
                         <ErrorMessage name="number" />
                     </label>
                 </div>
-
                 <div>
                     <button type="submit">Add contact</button>
                 </div>
