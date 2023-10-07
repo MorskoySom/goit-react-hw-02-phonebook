@@ -1,5 +1,4 @@
 import React from "react";
-import { Component } from "react";
 
 export const Filter = ({ filterName, toSearch }) => {
     return <div>Filter

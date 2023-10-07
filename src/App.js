@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { nanoid } from "nanoid";
 import { Item } from "Element/Element"
 import { ContactList } from "ContactsList/ContactsList";
 import { ContactForm } from "ContactForm/ContactForm";
@@ -13,6 +14,27 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: ''
+  }
+
+  addContact = newContact => {
+    const { name, number } = newContact;
+
+    if (this.checkIfContactExists(name, number)) {
+      alert(`Contact with name ${name} or number ${number} already exists!`);
+      return;
+    }
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, { ...newContact, id: nanoid() }]
+    }));
+  }
+
+  checkIfContactExists = (name, number) => {
+    const existingContact = this.state.contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase() ||
+        contact.number === number
+    );
+    return existingContact;
   }
 
   changeFilter = newFilter => {
@@ -33,13 +55,13 @@ class App extends Component {
   }
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
 
     return (
       <div>
         <h1>Phonebook {filter}</h1>
-        <ContactForm />
+        <ContactForm toAdd={this.addContact} />
         <h2>Contacts</h2>
         <Filter filterName={filter} toSearch={this.changeFilter} />
         <ContactList persons={visibleContacts} toDelete={this.deleteContactElement} />
