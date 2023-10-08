@@ -1,9 +1,10 @@
 import React from "react";
+import { Item, Terminator } from "./Element.styled";
 
 export const Element = ({ info: { name, number, id }, toDelete }) => {
-    return (<div>
+    return (<Item>
         <p>{name} : {number}</p>
-        <button onClick={() => toDelete(id)}>Delete</button>
-    </div>)
+        <Terminator onClick={() => toDelete(id)}>Delete</Terminator>
+    </Item>)
 }
 
