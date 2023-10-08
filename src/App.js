@@ -59,7 +59,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook {filter}</h1>
+        <h1>Phonebook</h1>
         <ContactForm toAdd={this.addContact} />
         <h2>Contacts</h2>
         <Filter filterName={filter} toSearch={this.changeFilter} />
