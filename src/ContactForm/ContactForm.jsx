@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Forma } from "./ContactForm.styled"
 
 const FormSchema = Yup.object().shape({
     name: Yup.string()
@@ -32,23 +33,25 @@ export const ContactForm = ({ toAdd }) => {
             }}
         >
             <Form>
-                <div>
-                    <label>
-                        Contact name
-                        <Field id="firstName" name="name" />
-                        <ErrorMessage name="name" />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Number
-                        <Field id="lastName" type="tel" name="number" />
-                        <ErrorMessage name="number" />
-                    </label>
-                </div>
-                <div>
-                    <button type="submit">Add contact</button>
-                </div>
+                <Forma>
+                    <div>
+                        <label>
+                            Contact name
+                            <Field id="firstName" name="name" />
+                            <ErrorMessage name="name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Number
+                            <Field id="lastName" type="tel" name="number" />
+                            <ErrorMessage name="number" />
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Add contact</button>
+                    </div>
+                </Forma>
             </Form>
         </Formik>
     )
